@@ -1,0 +1,12 @@
+# Ignore virtual environment
+/venv
+
+# Frontend related ignores (based on what you provided)
+/frontend/node_modules
+.env
+
+# Backend or other ignores
+/backend/venv
+*.pyc
+*.log
+*.pkl
