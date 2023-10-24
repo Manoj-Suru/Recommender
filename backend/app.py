@@ -13,7 +13,7 @@ with open('new_df.pkl', 'rb') as f:
 with open('similarity.pkl', 'rb') as f:
     similarity = pickle.load(f)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 CORS(app)
 
 @app.route('/')
