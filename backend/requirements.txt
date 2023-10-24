@@ -2,6 +2,5 @@ flask-cors
 numpy 
 pandas 
 flask
-sklearn 
 nltk
 scikit-learn
