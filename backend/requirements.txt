@@ -4,3 +4,4 @@ pandas
 flask
 nltk
 scikit-learn
+gunicorn
