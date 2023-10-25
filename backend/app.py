@@ -37,8 +37,8 @@ def get_movies():
 def get_recommendations():
     data = request.get_json()
     movie_name = data['movie_name']
-    recommendations = recommend(movie_name)
-    return jsonify({"recommendations": recommendations})
+    recommendations,posters = recommend(movie_name)
+    return jsonify({"recommendations": recommendations,"posters":posters})
 
 if __name__ == '__main__':
     app.run(debug=True)
