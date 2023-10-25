@@ -89,11 +89,11 @@ vectors = cv.fit_transform(new_df['tags']).toarray()
 
 similarity = cosine_similarity(vectors)
 
-# def fetch_poster(movie_id):
-#     res = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=f3c54155931e0c730d4c2ae543ef294c'.format(movie_id))
-#     data = res.json()
-#     print(data)
-#     return "https://image.tmdb.org/t/p/w500/"+data['poster_path']
+def fetch_poster(movie_id):
+    res = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=f3c54155931e0c730d4c2ae543ef294c'.format(movie_id))
+    data = res.json()
+    #print(data)
+    return "https://image.tmdb.org/t/p/w500/"+data['poster_path']
 
 # def recommend(movie):
 #     idx = new_df[new_df['title'] == movie].index[0]
@@ -135,11 +135,11 @@ def recommend(movie):
     movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:6]
     
     recommended_movies = []
-    #recommended_movies_posters = []
+    recommended_movies_posters = []
     for i in movies_list:
-        # movie_id = i[0]
+        movie_id = new_df.iloc[i[0]].movie_id
         # print(i)
         #fetch poster
         recommended_movies.append(new_df.iloc[i[0]].title)
-        #recommended_movies_posters.append(fetch_poster(movie_id))
-    return recommended_movies
+        recommended_movies_posters.append(fetch_poster(movie_id))
+    return recommended_movies,recommended_movies_posters
