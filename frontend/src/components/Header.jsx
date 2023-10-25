@@ -3,7 +3,8 @@ import React from 'react'
 const Header = () => {
   return (
     <header>
-        <h1>Movie Recommendation System</h1>
+        <h1>RecommendMe</h1>
+        <h2>Movie Recommendation System</h2>
     </header>
   )
 }
